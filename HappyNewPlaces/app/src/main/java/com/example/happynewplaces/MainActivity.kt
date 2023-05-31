@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        setSupportActionBar(binding?.toolMainPlace)
 
         binding?.fabAddHappyPlace?.setOnClickListener{
             val intent = Intent(this@MainActivity, AddHappyPlaceActivity::class.java)
@@ -22,3 +23,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+//https://github.com/Karumi/Dexter
