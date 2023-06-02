@@ -42,7 +42,10 @@
                 android:id="@+id/txtTitleMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                android:textColorHint="@color/navy"
+                app:hintTextColor="@color/navy"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,10 +70,12 @@
                 android:id="@+id/txtDescriptionMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
                 android:textColorHint="@color/navy"
                 app:hintTextColor="@color/navy"
-                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
                 android:layout_marginTop="@dimen/add_screen_til_marginTop"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtTitleMain">
@@ -93,7 +98,10 @@
                 android:id="@+id/txtDateMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                android:textColorHint="@color/navy"
+                app:hintTextColor="@color/navy"
 
                 android:layout_marginTop="@dimen/add_screen_til_marginTop"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -120,7 +128,10 @@
                 android:id="@+id/txtLocationMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                android:textColorHint="@color/navy"
+                app:hintTextColor="@color/navy"
 
                 android:layout_marginTop="@dimen/add_screen_til_marginTop"
                 app:layout_constraintEnd_toEndOf="parent"
