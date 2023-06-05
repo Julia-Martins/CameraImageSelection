@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="blue">#0000FF</color>
+    <color name="deepSkyBlue">#00BFFF</color>
+    <color name="dodgerBlue">#1E90FF</color>
+    <color name="navy">#000080</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="add_place_image_shape_radius">3dp</dimen>
+    <dimen name="add_screen_btn_save_marginTop">24dp</dimen>
+    <dimen name="add_screen_btn_save_paddingTopBottom">8dp</dimen>
+    <dimen name="add_screen_place_image_marginTop">15dp</dimen>
+    <dimen name="add_screen_place_image_padding">2dp</dimen>
+    <dimen name="add_screen_place_image_size">200dp</dimen>
+    <dimen name="add_screen_text_add_image_marginTop">96dp</dimen>
+    <dimen name="add_screen_text_add_image_padding">10dp</dimen>
+    <dimen name="add_screen_text_add_image_textSize">18sp</dimen>
+    <dimen name="add_screen_til_marginTop">5dp</dimen>
+    <dimen name="btn_text_size">18sp</dimen>
+    <dimen name="button_radius">10dp</dimen>
+    <dimen name="edit_text_text_size">16sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="image_border_stroke_size">0.5dp</dimen>
+    <dimen name="main_content_padding">16dp</dimen>
+    <string name="app_name">Happy Places</string>
+    <string name="btn_text_save">SAVE</string>
+    <string name="edit_text_hint_date">Date</string>
+    <string name="edit_text_hint_description">Description</string>
+    <string name="edit_text_hint_location">Location</string>
+    <string name="edit_text_hint_tittle">Tittle</string>
+    <string name="text_add_image">ADD IMAGE</string>
+    <style name="Base.Theme.HappyNewPlaces" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/dodgerBlue</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    <style name="CustomNoActionBarTheme" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/dodgerBlue</item>
+    </style>
+    <style name="CustomToolBarStyle">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:colorControlNormal">@color/white</item>
+    </style>
+    <style name="Theme.HappyNewPlaces" parent="Base.Theme.HappyNewPlaces"/>
+</resources>

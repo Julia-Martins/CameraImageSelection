@@ -1,0 +1,33 @@
+Index: app/src/main/java/com/example/happynewplaces/database/DataBaseHandler.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/happynewplaces/database/DataBaseHandler.kt b/app/src/main/java/com/example/happynewplaces/database/DataBaseHandler.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/happynewplaces/database/DataBaseHandler.kt	
+@@ -0,0 +1,5 @@
++package com.example.happynewplaces.database
++
++class DataBaseHandler {
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/happynewplaces/models/HappyPlacesModel.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/happynewplaces/models/HappyPlacesModel.kt b/app/src/main/java/com/example/happynewplaces/models/HappyPlacesModel.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/happynewplaces/models/HappyPlacesModel.kt	
+@@ -0,0 +1,12 @@
++package com.example.happynewplaces.models
++
++data class HappyPlacesModel (
++    val id: Int,
++    val title: String,
++    val image: String,
++    val description: String,
++    val date: String,
++    val location: String,
++    val latitude: Double,
++    val longitude: Double
++)
+\ No newline at end of file

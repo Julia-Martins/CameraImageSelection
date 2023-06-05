@@ -1,0 +1,128 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.happynewplaces"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml
+10
+11    <uses-feature
+11-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:5:5-7:36
+12        android:name="android.hardware.camera"
+12-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:6:9-47
+13        android:required="false" />
+13-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:7:9-33
+14
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:9:5-80
+15-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:9:22-77
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:10:5-81
+16-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:10:22-78
+17    <uses-permission android:name="android.permission.CAMERA" />
+17-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:11:5-65
+17-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:11:22-62
+18
+19    <permission
+19-->[androidx.core:core:1.9.0] C:\Users\thais\.gradle\caches\transforms-3\f10e776829ece4f5d7841e1eaff88cf0\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+20        android:name="com.example.happynewplaces.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.9.0] C:\Users\thais\.gradle\caches\transforms-3\f10e776829ece4f5d7841e1eaff88cf0\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.9.0] C:\Users\thais\.gradle\caches\transforms-3\f10e776829ece4f5d7841e1eaff88cf0\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="com.example.happynewplaces.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.9.0] C:\Users\thais\.gradle\caches\transforms-3\f10e776829ece4f5d7841e1eaff88cf0\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.9.0] C:\Users\thais\.gradle\caches\transforms-3\f10e776829ece4f5d7841e1eaff88cf0\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+24
+25    <application
+25-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:13:5-41:19
+26        android:allowBackup="true"
+26-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:14:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.9.0] C:\Users\thais\.gradle\caches\transforms-3\f10e776829ece4f5d7841e1eaff88cf0\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+28        android:dataExtractionRules="@xml/data_extraction_rules"
+28-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:15:9-65
+29        android:debuggable="true"
+30        android:fullBackupContent="@xml/backup_rules"
+30-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:16:9-54
+31        android:icon="@mipmap/ic_launcher"
+31-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:17:9-43
+32        android:label="@string/app_name"
+32-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:18:9-41
+33        android:roundIcon="@mipmap/ic_launcher_round"
+33-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:19:9-54
+34        android:supportsRtl="true"
+34-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:20:9-35
+35        android:testOnly="true"
+36        android:theme="@style/Theme.HappyNewPlaces" >
+36-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:21:9-52
+37        <activity
+37-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:23:9-28:40
+38            android:name="com.example.happynewplaces.AddHappyPlaceActivity"
+38-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:24:13-50
+39            android:exported="false"
+39-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:28:13-37
+40            android:label="ADD HAPPY PLACE"
+40-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:27:13-44
+41            android:screenOrientation="portrait"
+41-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:25:13-49
+42            android:theme="@style/CustomNoActionBarTheme" />
+42-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:26:13-58
+43        <activity
+43-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:29:9-40:20
+44            android:name="com.example.happynewplaces.MainActivity"
+44-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:30:13-41
+45            android:exported="true"
+45-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:34:13-36
+46            android:label="Welcome to Happy New Place"
+46-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:33:13-55
+47            android:screenOrientation="portrait"
+47-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:31:13-49
+48            android:theme="@style/CustomNoActionBarTheme" >
+48-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:32:13-58
+49            <intent-filter>
+49-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:35:13-39:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:36:17-69
+50-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:36:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:38:17-77
+52-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:38:27-74
+53            </intent-filter>
+54        </activity>
+55        <activity
+55-->[com.karumi:dexter:6.2.3] C:\Users\thais\.gradle\caches\transforms-3\fb787f9e748293e4d50b3eecd5cf500c\transformed\dexter-6.2.3\AndroidManifest.xml:27:9-29:72
+56            android:name="com.karumi.dexter.DexterActivity"
+56-->[com.karumi:dexter:6.2.3] C:\Users\thais\.gradle\caches\transforms-3\fb787f9e748293e4d50b3eecd5cf500c\transformed\dexter-6.2.3\AndroidManifest.xml:28:13-60
+57            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+57-->[com.karumi:dexter:6.2.3] C:\Users\thais\.gradle\caches\transforms-3\fb787f9e748293e4d50b3eecd5cf500c\transformed\dexter-6.2.3\AndroidManifest.xml:29:13-69
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thais\.gradle\caches\transforms-3\529362b2c98fe24f73b08d0d843d4417\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thais\.gradle\caches\transforms-3\529362b2c98fe24f73b08d0d843d4417\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+61            android:authorities="com.example.happynewplaces.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thais\.gradle\caches\transforms-3\529362b2c98fe24f73b08d0d843d4417\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thais\.gradle\caches\transforms-3\529362b2c98fe24f73b08d0d843d4417\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thais\.gradle\caches\transforms-3\529362b2c98fe24f73b08d0d843d4417\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thais\.gradle\caches\transforms-3\529362b2c98fe24f73b08d0d843d4417\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thais\.gradle\caches\transforms-3\529362b2c98fe24f73b08d0d843d4417\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\thais\.gradle\caches\transforms-3\c7ef2681a93dd97d50e0d6113820cbd9\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\thais\.gradle\caches\transforms-3\c7ef2681a93dd97d50e0d6113820cbd9\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\thais\.gradle\caches\transforms-3\c7ef2681a93dd97d50e0d6113820cbd9\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+69        </provider>
+70    </application>
+71
+72</manifest>

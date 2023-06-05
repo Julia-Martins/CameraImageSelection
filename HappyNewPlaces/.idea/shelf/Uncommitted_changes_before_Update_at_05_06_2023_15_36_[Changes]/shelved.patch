@@ -1,0 +1,239 @@
+Index: app/src/main/java/com/example/happynewplaces/AddHappyPlaceActivity.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/happynewplaces/AddHappyPlaceActivity.kt b/app/src/main/java/com/example/happynewplaces/activities/AddHappyPlaceActivity.kt
+rename from app/src/main/java/com/example/happynewplaces/AddHappyPlaceActivity.kt
+rename to app/src/main/java/com/example/happynewplaces/activities/AddHappyPlaceActivity.kt
+--- a/app/src/main/java/com/example/happynewplaces/AddHappyPlaceActivity.kt	
++++ b/app/src/main/java/com/example/happynewplaces/activities/AddHappyPlaceActivity.kt	
+@@ -1,24 +1,36 @@
+-package com.example.happynewplaces
++package com.example.happynewplaces.activities
+ 
++import android.Manifest
++import android.app.Activity
+ import android.app.AlertDialog
+ import android.app.DatePickerDialog
+ import android.content.ActivityNotFoundException
++import android.content.Context
++import android.content.ContextWrapper
+ import android.content.Intent
+-import android.media.audiofx.Equalizer.Settings
++import android.graphics.Bitmap
+ import android.net.Uri
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.provider.MediaStore
++import android.util.Log
+ import android.view.View
+ import android.widget.Toast
++import com.example.happynewplaces.R
+ import com.example.happynewplaces.databinding.ActivityAddHappyPlaceBinding
+ import com.karumi.dexter.Dexter
+ import com.karumi.dexter.MultiplePermissionsReport
+ import com.karumi.dexter.PermissionToken
+ import com.karumi.dexter.listener.PermissionRequest
+ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
++import java.io.File
++import java.io.FileOutputStream
++import java.io.IOException
++import java.io.OutputStream
+ import java.text.SimpleDateFormat
+ import java.util.Calendar
+ import java.util.Locale
++import java.util.UUID
+ 
+ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
+ 
+@@ -69,10 +81,7 @@
+ 
+                     when(which){
+                         0 -> choosePhotoFromGallery()
+-                        1 -> Toast.makeText(this@AddHappyPlaceActivity,
+-                        "Camera selection coming soon...",
+-                            Toast.LENGTH_SHORT)
+-                        .show()
++                        1 -> takePhotoFromCamera()
+                     }
+                 }
+                 pictureDialog.show()
+@@ -80,17 +89,70 @@
+         }
+     }
+ 
++    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
++        super.onActivityResult(requestCode, resultCode, data)
++
++        if(resultCode == Activity.RESULT_OK){
++            if(requestCode == GALLERY){
++                if(data != null){
++                    val contentURI = data.data
++                    try{
++                        val selectedImageBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
++
++                        val saveImageToInternalStorage = saveImageToInternalStorage(selectedImageBitmap)
++
++                        Log.e("Saved Image: ", "Path :: $saveImageToInternalStorage")
++
++                        binding?.imgPlaceImage?.setImageBitmap(selectedImageBitmap)
++                    }catch (e: IOException){
++                        e.printStackTrace()
++                        Toast.makeText(
++                            this@AddHappyPlaceActivity,
++                            "Failed to load the Image from Gallery ",
++                            Toast.LENGTH_SHORT
++                        ).show()
++                    }
++                }
++            }else if(requestCode == CAMERA){
++                val thumbNail: Bitmap = data!!.extras!!.get("data") as Bitmap
++
++                val saveImageToInternalStorage = saveImageToInternalStorage(thumbNail)
++
++                Log.e("Saved Image: ", "Path :: $saveImageToInternalStorage")
++
++                binding?.imgPlaceImage?.setImageBitmap(thumbNail)
++            }
++        }
++    }
++
++    private fun takePhotoFromCamera(){
++        Dexter.withActivity(this).withPermissions(
++            Manifest.permission.READ_EXTERNAL_STORAGE,
++            Manifest.permission.WRITE_EXTERNAL_STORAGE,
++            Manifest.permission.CAMERA
++        ).withListener(object: MultiplePermissionsListener {
++            override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
++                if(report!!.areAllPermissionsGranted()){
++                    val galleryIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
++                    startActivityForResult(galleryIntent, CAMERA)
++                }
++            }
++            override fun onPermissionRationaleShouldBeShown(permissions: MutableList<PermissionRequest>, token: PermissionToken) {
++                showRationalDialogForPermissions()
++            }
++        }).onSameThread().check()
++    }
++
+     private fun choosePhotoFromGallery(){
+         Dexter.withActivity(this).withPermissions(
+-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
++            Manifest.permission.READ_EXTERNAL_STORAGE,
++            Manifest.permission.WRITE_EXTERNAL_STORAGE
+         ).withListener(object: MultiplePermissionsListener {
+             override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                 if(report!!.areAllPermissionsGranted()){
+-                    Toast.makeText(this@AddHappyPlaceActivity,
+-                        "Storage READ/WRITE permission are granted. Now you can select an image from GALLERY",
+-                        Toast.LENGTH_SHORT)
+-                    .show()
++                    val galleryIntent = Intent(Intent.ACTION_PICK,
++                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
++                    startActivityForResult(galleryIntent, GALLERY)
+                 }
+             }
+             override fun onPermissionRationaleShouldBeShown(permissions: MutableList<PermissionRequest>, token: PermissionToken) {
+@@ -98,7 +160,6 @@
+             }
+         }).onSameThread().check()
+     }
+-
+     private fun showRationalDialogForPermissions(){
+         AlertDialog.Builder(this).setMessage("It looks you have turned off permission " +
+                 "required for this feature. It can be enabled under " +
+@@ -126,4 +187,28 @@
+ 
+         binding?.txtDate?.setText(sdf.format(cal.time).toString())
+     }
++
++    private fun saveImageToInternalStorage(bitmap: Bitmap): Uri{
++        val wrapper = ContextWrapper(applicationContext)
++        var file = wrapper.getDir(IMAGE_DIRECTORY, Context.MODE_PRIVATE)
++
++        file = File(file, "${UUID.randomUUID()}.jpg")
++
++        try {
++            val stream: OutputStream = FileOutputStream(file)
++            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
++
++            stream.flush()
++            stream.close()
++
++        }catch (e: IOException){
++            e.printStackTrace()
++        }
++        return Uri.parse(file.absolutePath)
++    }
++    companion object{
++        private const val GALLERY = 1
++        private const val CAMERA = 2
++        private const val IMAGE_DIRECTORY = "HappyPlacesImages"
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_add_happy_place.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_add_happy_place.xml b/app/src/main/res/layout/activity_add_happy_place.xml
+--- a/app/src/main/res/layout/activity_add_happy_place.xml	
++++ b/app/src/main/res/layout/activity_add_happy_place.xml	
+@@ -5,7 +5,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".AddHappyPlaceActivity">
++    tools:context=".activities.AddHappyPlaceActivity">
+     
+     <androidx.appcompat.widget.Toolbar
+         android:id="@+id/tool_Add_place"
+Index: app/src/main/res/layout/activity_main.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	
++++ b/app/src/main/res/layout/activity_main.xml	
+@@ -5,7 +5,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".MainActivity">
++    tools:context=".activities.MainActivity">
+ 
+     <androidx.appcompat.widget.Toolbar
+         android:id="@+id/tool_Main_place"
+Index: app/src/main/java/com/example/happynewplaces/MainActivity.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/happynewplaces/MainActivity.kt b/app/src/main/java/com/example/happynewplaces/activities/MainActivity.kt
+rename from app/src/main/java/com/example/happynewplaces/MainActivity.kt
+rename to app/src/main/java/com/example/happynewplaces/activities/MainActivity.kt
+--- a/app/src/main/java/com/example/happynewplaces/MainActivity.kt	
++++ b/app/src/main/java/com/example/happynewplaces/activities/MainActivity.kt	
+@@ -1,8 +1,7 @@
+-package com.example.happynewplaces
++package com.example.happynewplaces.activities
+ 
+ import android.content.Intent
+ import android.os.Bundle
+-import android.widget.Button
+ import androidx.appcompat.app.AppCompatActivity
+ import com.example.happynewplaces.databinding.ActivityMainBinding
+ 
+Index: app/src/main/AndroidManifest.xml
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	
++++ b/app/src/main/AndroidManifest.xml	
+@@ -21,13 +21,13 @@
+         android:theme="@style/Theme.HappyNewPlaces"
+         tools:targetApi="31">
+         <activity
+-            android:name=".AddHappyPlaceActivity"
++            android:name=".activities.AddHappyPlaceActivity"
+             android:screenOrientation="portrait"
+             android:theme="@style/CustomNoActionBarTheme"
+             android:label="ADD HAPPY PLACE"
+             android:exported="false" />
+         <activity
+-            android:name=".MainActivity"
++            android:name=".activities.MainActivity"
+             android:screenOrientation="portrait"
+             android:theme="@style/CustomNoActionBarTheme"
+             android:label="Welcome to Happy New Place"
