@@ -62,8 +62,8 @@
 36-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:21:9-52
 37        <activity
 37-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:23:9-28:40
-38            android:name="com.example.happynewplaces.AddHappyPlaceActivity"
-38-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:24:13-50
+38            android:name="com.example.happynewplaces.activities.AddHappyPlaceActivity"
+38-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:24:13-61
 39            android:exported="false"
 39-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:28:13-37
 40            android:label="ADD HAPPY PLACE"
@@ -74,8 +74,8 @@
 42-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:26:13-58
 43        <activity
 43-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:29:9-40:20
-44            android:name="com.example.happynewplaces.MainActivity"
-44-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:30:13-41
+44            android:name="com.example.happynewplaces.activities.MainActivity"
+44-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:30:13-52
 45            android:exported="true"
 45-->C:\Users\thais\AndroidStudioProjects\HappyNewPlaces\app\src\main\AndroidManifest.xml:34:13-36
 46            android:label="Welcome to Happy New Place"

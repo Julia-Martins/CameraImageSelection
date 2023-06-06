@@ -35,13 +35,13 @@
         android:testOnly="true"
         android:theme="@style/Theme.HappyNewPlaces" >
         <activity
-            android:name="com.example.happynewplaces.AddHappyPlaceActivity"
+            android:name="com.example.happynewplaces.activities.AddHappyPlaceActivity"
             android:exported="false"
             android:label="ADD HAPPY PLACE"
             android:screenOrientation="portrait"
             android:theme="@style/CustomNoActionBarTheme" />
         <activity
-            android:name="com.example.happynewplaces.MainActivity"
+            android:name="com.example.happynewplaces.activities.MainActivity"
             android:exported="true"
             android:label="Welcome to Happy New Place"
             android:screenOrientation="portrait"

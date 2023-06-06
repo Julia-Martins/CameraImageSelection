@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Base.Theme.HappyNewPlaces" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/navy</item>
+        <item name="android:statusBarColor">@color/dodgerBlue</item>
         <item name="android:windowBackground">@color/black</item>
     </style>
+    <style name="Theme.HappyNewPlaces" parent="Base.Theme.HappyNewPlaces"/>
 </resources>

@@ -82,10 +82,10 @@
                     "from": {
                         "startLines": "2,7",
                         "startColumns": "4,4",
-                        "startOffsets": "100,349",
+                        "startOffsets": "102,356",
                         "endLines": "5,7",
                         "endColumns": "12,76",
-                        "endOffsets": "343,421"
+                        "endOffsets": "348,428"
                     },
                     "to": {
                         "startLines": "2453,6345",
@@ -152,11 +152,11 @@
                 {
                     "source": "C:\\Users\\thais\\AndroidStudioProjects\\HappyNewPlaces\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "1,8,5,4,6,3,7",
+                        "startLines": "2,9,6,5,7,4,8",
                         "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "16,358,191,124,244,67,305",
+                        "startOffsets": "57,406,236,168,290,110,352",
                         "endColumns": "49,46,52,66,60,56,52",
-                        "endOffsets": "61,400,239,186,300,119,353"
+                        "endOffsets": "102,448,284,230,346,162,400"
                     },
                     "to": {
                         "startLines": "1961,1969,1974,1975,1976,1977,2107",
@@ -321,9 +321,9 @@
                     "from": {
                         "startLines": "2,7,5,6,8,3",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,231,140,186,270,97",
+                        "startOffsets": "57,238,145,192,278,100",
                         "endColumns": "41,38,45,44,38,41",
-                        "endOffsets": "92,265,181,226,304,134"
+                        "endOffsets": "94,272,186,232,312,137"
                     },
                     "to": {
                         "startLines": "638,639,652,692,936,959",
